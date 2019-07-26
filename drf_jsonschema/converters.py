@@ -47,13 +47,14 @@ class CharFieldConverter(FormatConverter):
 
     def convert(self, field):
         result = super(CharFieldConverter, self).convert(field)
-        if field.max_length is not None:
-            result["maxLength"] = field.max_length
-        min_length = field.min_length
-        if not min_length and not field.allow_blank:
-            min_length = 1
-        if min_length is not None:
-            result["minLength"] = min_length
+        if field.required:
+            if field.max_length is not None:
+                result["maxLength"] = field.max_length
+            min_length = field.min_length
+            if not min_length and not field.allow_blank:
+                min_length = 1
+            if min_length is not None:
+                result["minLength"] = min_length
         return result
 
 
