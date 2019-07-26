@@ -32,6 +32,7 @@ def field_to_jsonschema(field):
 def to_jsonschema(serializer):
     properties = {}
     required = []
+
     for name, field in serializer.fields.items():
         if field.read_only:
             continue
