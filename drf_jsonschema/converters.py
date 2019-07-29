@@ -1,9 +1,9 @@
 # convert a serializer to a JSON Schema.
-from rest_framework.settings import api_settings
 from rest_framework import serializers
+from rest_framework.settings import api_settings
+
 from .convert import converter, field_to_jsonschema
 from .fields import JSONSchemaField, SerializerJSONField
-from rest_framework.fields import empty
 
 
 class Error(Exception):
